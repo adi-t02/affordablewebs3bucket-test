@@ -1,0 +1,74 @@
+read n1
+echo "enter second number:"
+read n2
+while [ $i = "y" ]
+do
+echo "1.Addition"
+echo "2.Subtraction"
+echo "3.Multiplication"
+echo "4.Division"
+echo "enter your choice:"
+read ch
+case $ch in
+1)sum=`expr $n1 + $n2`
+echo "Sum = "$sum;;
+2)sub=`expr $n1 - $n2`
+echo "Sub = "$sub;;
+3)mul=`expr $n1 \* $n2`
+echo "Mul = "$mul;;
+4)div=`expr $n1 / $n2`
+echo "Div = "$div;;
+*)echo "Invalid Choice";;
+esac
+echo "Do you want to continue?"
+read i
+if [ $i != "y" ]
+then
+exit
+fi
+done
+Program - 4:
+Write a shell script to find the greatest of three numbers.
+echo "Enter three numbers:"
+read a b c
+if [ $a -gt $b -a $a -gt $c ]
+then
+echo "$a is greatest"
+elif [ $b -gt $c -a $b -gt $a ]
+then
+echo "$b is greatest"
+else
+echo "$c is greatest"
+fi
+Program - 5:
+Write a shell script to compute mean and standard deviation of
+three numbers.
+echo "enter first number"
+read a
+echo "enter second number"
+read b
+echo " enter third number"
+read c
+m=$(( ( $a + $b + $c) / 3))
+p=`expr $a - $m`
+q=`expr $b - $m`
+r=`expr $c - $m`
+d=$(( ( $p * $p + $q * $q + $r * $r) / 3 ))
+w=$(echo "sqrt ( $d )" | bc)
+echo "Mean of $a, $b, $c is $m"
+echo "Standard deviation is $w"
+Program - 6:
+Write a shell script to find sum of all digits from a given
+number.
+echo "Enter a number:"
+read n
+temp=$n
+sd=0
+sum=0
+while [ $n -gt 0 ]
+do
+sd=$(( $n % 10 ))
+n=$(( $n / 10 ))
+sum=$(( $sum + $sd ))
+done
+echo "Sum is $sum"
